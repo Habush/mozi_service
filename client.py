@@ -17,10 +17,10 @@ with open('bin_truncated.csv', 'rb') as f:
 
 encoded = base64.b64encode(content).decode()
 
-opts = {'numberOfThreads':8, 'maximumEvals': 1000, 'balance': 1, 'outputCscore': 1, 'reductKnobBuildingEffort': 1, 'fsAlgo':'smd', 'fsTargetSize':4, 'inputCategory': 'older-than'}
+opts = {"numberOfThreads":8, "maximumEvals": 1000, "balance": 1, "outputCscore": 1, "reductKnobBuildingEffort": 1, "fsAlgo": "smd", "fsTargetSize":4, "inputCategory": "older-than"}
 
 if __name__ == '__main__':
-    response = rpcrequest('http://localhost:5000/', 'handle', file=encoded, options={"mosesOptions": opts, "crossValidationOptions": {"testSize": 0.3, "folds": 2, "randomSeed": 2}})
+    response = rpcrequest('http://localhost:5001/', 'handle', file=encoded, options={"mosesOptions": opts, "crossValidationOptions": {"testSize": 0.3, "folds": 2, "randomSeed": 2}})
 
     print(response)
 
