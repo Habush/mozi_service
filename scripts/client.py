@@ -3,11 +3,12 @@ __author__ = 'Abdulrahman Semrie'
 from jsonrpcclient import request as rpcrequest
 import base64
 import pathlib
-
 import os
+import sys
 
+sys.path.append(str(pathlib.Path(__file__).absolute().parent.parent))
 
-data_dir = os.path.join(pathlib.Path(__file__).absolute().parent, 'data')
+data_dir = os.path.join(pathlib.Path(__file__).absolute().parent.parent, 'data')
 
 os.chdir(data_dir)
 

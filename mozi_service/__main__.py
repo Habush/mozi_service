@@ -1,12 +1,9 @@
 __author__ = 'Abdulrahman Semrie'
 
-import pathlib
 from flask import Flask, request, Response
 from jsonrpcserver import methods
-import os
-from config import MOZI_URI
-import shutil
 import requests
+from config import MOZI_URI, SERVER_PORT, DEBUG_MODE
 
 app = Flask(__name__)
 
@@ -27,11 +24,6 @@ def handle(**kwargs):
         return "Error occurred Please try again"
 
 
-def clean_up(task_id):
-    task_dir = os.path.join(pathlib.Path(__file__).absolute().parent, 'data/'+task_id)
-    if os.path.exists(task_dir):
-        shutil.rmtree(task_dir)
-
 @app.route('/', methods=['POST'])
 def index():
     req = request.get_data().decode()
@@ -43,4 +35,4 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run(port=5001)
+    app.run(host='127.0.0.1', port=SERVER_PORT, debug=DEBUG_MODE)

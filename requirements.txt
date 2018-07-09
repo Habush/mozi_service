@@ -1,10 +1,6 @@
-anytree
 flask
 jsonpickle
-lark-parser
-pymongo
-
-pandas==0.23.0
-numpy==1.14.3
-scipy==1.1.0
-scikit-learn==0.19.1
+jsonrpcclient
+jsonrpcserver
+requests
+snetd-alpha
