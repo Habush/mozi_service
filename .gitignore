@@ -4,3 +4,4 @@ __pycache__/
 cross_val/__pycache__/
 utils/__pycache__/
 data/
+snetd.db
