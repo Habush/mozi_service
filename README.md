@@ -51,3 +51,5 @@ The purpose of this service is to enable SingularityNet users to run [MOSES](htt
 ```bash
     $ python ./scripts/client.py
 ```
+
+* After sending the JSONRPC request the server will respond with a url address on which you can poll the current status of the task
