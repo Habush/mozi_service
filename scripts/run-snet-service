@@ -43,7 +43,7 @@ def start_snetd(cwd, daemon_config_path=None):
 
 
 def start_service(cwd):
-    return subprocess.Popen(["python", "service"], cwd=cwd)
+    return subprocess.Popen(["python", "mozi_service"], cwd=cwd)
 
 
 if __name__ == "__main__":
