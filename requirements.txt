@@ -1,4 +1,4 @@
-flask
+aiohttp
 jsonpickle
 jsonrpcclient
 jsonrpcserver

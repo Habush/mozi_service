@@ -1,11 +1,11 @@
 __author__ = 'Abdulrahman Semrie'
 
-from flask import Flask, request, Response
 from jsonrpcserver import methods
 import requests
-from config import MOZI_URI, SERVER_PORT, DEBUG_MODE
+from aiohttp import web
+from config import MOZI_URI, SERVER_PORT
 
-app = Flask(__name__)
+app = web.Application()
 
 
 @methods.add
@@ -24,15 +24,16 @@ def handle(**kwargs):
         return "Error occurred Please try again"
 
 
-@app.route('/', methods=['POST'])
-def index():
-    req = request.get_data().decode()
+
+async def index(request):
+    req = await request.text()
     response = methods.dispatch(req)
-    return Response(str(response), response.http_status, mimetype='application/json')
+    return web.json_response(response, status=response.http_status)
 
 
 
 
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=SERVER_PORT, debug=DEBUG_MODE)
+    app.router.add_post('/', index)
+    web.run_app(app, host='127.0.0.1', port=SERVER_PORT)
