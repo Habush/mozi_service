@@ -1,4 +1,6 @@
 aiohttp
+grpcio==1.12.1
+grpcio-tools==1.12.1
 jsonpickle
 jsonrpcclient
 jsonrpcserver

@@ -1,4 +1,4 @@
-MOZI_URI = "https://mozi.ai/api/v1.1/service"
+MOZI_URI = "http://localhost:5000/api/v1.1/service"
 
 SERVER_PORT = 5001
 

@@ -1,0 +1,44 @@
+syntax = 'proto3';
+
+//message MosesOptions {
+//    int32 maximumEvals = 1;
+//    int32 fsSize = 2;
+//    int32 reductKnobBuildingEffort = 3;
+//    string inputCategory = 4;
+//    int32 resultCount = 5;
+//    int32 numberOfThreads = 6;
+//    string fsnAlgorithm = 7;
+//    bool enableFeatureSelection = 8;
+//    bool balance = 9;
+//    bool hcWidenSearch = 10;
+//
+//}
+
+//message MosesOptions {
+//    string parameters = 1;
+//}
+
+message CrossValOptions {
+    int32 folds = 1;
+    float testSize = 2;
+    int32 randomSeed = 3;
+}
+
+message AnalysisParameters {
+    oneof one_of_parameters {
+        string mosesOpts = 1;
+        CrossValOptions crossValOpts = 2;
+        string category = 3;
+        bytes dataset = 4;
+    }
+}
+
+message Result {
+    string resultUrl = 1;
+    string description = 2;
+}
+
+service MosesService {
+    rpc StartAnalysis(stream AnalysisParameters) returns (Result) {};
+}
+
