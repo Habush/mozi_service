@@ -7,12 +7,10 @@ message CrossValOptions {
 }
 
 message AnalysisParameters {
-    oneof one_of_parameters {
-        string mosesOpts = 1;
-        CrossValOptions crossValOpts = 2;
-        string category = 3;
-        bytes dataset = 4;
-    }
+    string mosesOpts = 1;
+    CrossValOptions crossValOpts = 2;
+    string category = 3;
+    string dataset = 4;
 }
 
 message Result {

@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='service_specs/moses_service.proto',
   package='',
   syntax='proto3',
-  serialized_pb=_b('\n!service_specs/moses_service.proto\"F\n\x0f\x43rossValOptions\x12\r\n\x05\x66olds\x18\x01 \x01(\x05\x12\x10\n\x08testSize\x18\x02 \x01(\x02\x12\x12\n\nrandomSeed\x18\x03 \x01(\x05\"\x8f\x01\n\x12\x41nalysisParameters\x12\x13\n\tmosesOpts\x18\x01 \x01(\tH\x00\x12(\n\x0c\x63rossValOpts\x18\x02 \x01(\x0b\x32\x10.CrossValOptionsH\x00\x12\x12\n\x08\x63\x61tegory\x18\x03 \x01(\tH\x00\x12\x11\n\x07\x64\x61taset\x18\x04 \x01(\x0cH\x00\x42\x13\n\x11one_of_parameters\"0\n\x06Result\x12\x11\n\tresultUrl\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t2A\n\x0cMosesService\x12\x31\n\rStartAnalysis\x12\x13.AnalysisParameters\x1a\x07.Result\"\x00(\x01\x62\x06proto3')
+  serialized_pb=_b('\n!service_specs/moses_service.proto\"F\n\x0f\x43rossValOptions\x12\r\n\x05\x66olds\x18\x01 \x01(\x05\x12\x10\n\x08testSize\x18\x02 \x01(\x02\x12\x12\n\nrandomSeed\x18\x03 \x01(\x05\"r\n\x12\x41nalysisParameters\x12\x11\n\tmosesOpts\x18\x01 \x01(\t\x12&\n\x0c\x63rossValOpts\x18\x02 \x01(\x0b\x32\x10.CrossValOptions\x12\x10\n\x08\x63\x61tegory\x18\x03 \x01(\t\x12\x0f\n\x07\x64\x61taset\x18\x04 \x01(\t\"0\n\x06Result\x12\x11\n\tresultUrl\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t2A\n\x0cMosesService\x12\x31\n\rStartAnalysis\x12\x13.AnalysisParameters\x1a\x07.Result\"\x00(\x01\x62\x06proto3')
 )
 
 
@@ -100,8 +100,8 @@ _ANALYSISPARAMETERS = _descriptor.Descriptor(
       options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='dataset', full_name='AnalysisParameters.dataset', index=3,
-      number=4, type=12, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b(""),
+      number=4, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None, file=DESCRIPTOR),
@@ -116,12 +116,9 @@ _ANALYSISPARAMETERS = _descriptor.Descriptor(
   syntax='proto3',
   extension_ranges=[],
   oneofs=[
-    _descriptor.OneofDescriptor(
-      name='one_of_parameters', full_name='AnalysisParameters.one_of_parameters',
-      index=0, containing_type=None, fields=[]),
   ],
-  serialized_start=110,
-  serialized_end=253,
+  serialized_start=109,
+  serialized_end=223,
 )
 
 
@@ -158,23 +155,11 @@ _RESULT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=255,
-  serialized_end=303,
+  serialized_start=225,
+  serialized_end=273,
 )
 
 _ANALYSISPARAMETERS.fields_by_name['crossValOpts'].message_type = _CROSSVALOPTIONS
-_ANALYSISPARAMETERS.oneofs_by_name['one_of_parameters'].fields.append(
-  _ANALYSISPARAMETERS.fields_by_name['mosesOpts'])
-_ANALYSISPARAMETERS.fields_by_name['mosesOpts'].containing_oneof = _ANALYSISPARAMETERS.oneofs_by_name['one_of_parameters']
-_ANALYSISPARAMETERS.oneofs_by_name['one_of_parameters'].fields.append(
-  _ANALYSISPARAMETERS.fields_by_name['crossValOpts'])
-_ANALYSISPARAMETERS.fields_by_name['crossValOpts'].containing_oneof = _ANALYSISPARAMETERS.oneofs_by_name['one_of_parameters']
-_ANALYSISPARAMETERS.oneofs_by_name['one_of_parameters'].fields.append(
-  _ANALYSISPARAMETERS.fields_by_name['category'])
-_ANALYSISPARAMETERS.fields_by_name['category'].containing_oneof = _ANALYSISPARAMETERS.oneofs_by_name['one_of_parameters']
-_ANALYSISPARAMETERS.oneofs_by_name['one_of_parameters'].fields.append(
-  _ANALYSISPARAMETERS.fields_by_name['dataset'])
-_ANALYSISPARAMETERS.fields_by_name['dataset'].containing_oneof = _ANALYSISPARAMETERS.oneofs_by_name['one_of_parameters']
 DESCRIPTOR.message_types_by_name['CrossValOptions'] = _CROSSVALOPTIONS
 DESCRIPTOR.message_types_by_name['AnalysisParameters'] = _ANALYSISPARAMETERS
 DESCRIPTOR.message_types_by_name['Result'] = _RESULT
@@ -209,8 +194,8 @@ _MOSESSERVICE = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=305,
-  serialized_end=370,
+  serialized_start=275,
+  serialized_end=340,
   methods=[
   _descriptor.MethodDescriptor(
     name='StartAnalysis',
